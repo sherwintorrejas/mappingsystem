@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
 public class login extends javax.swing.JFrame {
 
 private Connection con;
-    /**
-     * Creates new form login
-     */
-  /*  public login() {
+   
+    
+      public login() {
         initComponents();
     }
+      
      public boolean validatelogin(){
     String name = UN.getText();
     String pwd = PD.getText();
@@ -31,25 +31,26 @@ private Connection con;
    return false;
     }
     if (pwd.equals("")){
-    JOptionPane.showMessageDialog(this, "PLEASE ENTER USERNAME");
+    JOptionPane.showMessageDialog(this, "PLEASE ENTER PASSWORD");
    return false;
     }
     return true;
     }
+
 public void login(){
-    String name = UN.getText();
+   String name = UN.getText();
     String pwd = PD.getText();
 
     try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemeterymapping", "root", "");
-        PreparedStatement pst = con.prepareStatement("select * from user where username = '"+UN.getText()+"'");
-//           pst.setString(1, name);
-           ResultSet rs = pst.executeQuery();
-           
-          if(rs.next()){
-         String hashedpassword = rs.getString("password");
-            if(pwd = rs.getString("password")){
-                 JOptionPane.showMessageDialog(this, "LOGIN SUCCESSFULL"); 
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cemeterymapping", "root", "");
+        PreparedStatement pst = con.prepareStatement("select * from user where username = ? and password = ?");
+        
+        pst.setString(1, name);
+        pst.setString(2, pwd);
+        
+        ResultSet rs = pst.executeQuery();
+        if(rs.next()){
+          JOptionPane.showMessageDialog(this, "LOGIN SUCCESSFULL"); 
                  DASHBOARD dsh= new DASHBOARD();
             dsh.setVisible(true);
 
@@ -57,20 +58,18 @@ public void login(){
             this.setDefaultCloseOperation(this.HIDE_ON_CLOSE);
             this.dispose();
             
-            }else{
+            }  else{
            JOptionPane.showMessageDialog(this, "INCORRECT USERNAME OR PASSWORD");
             
             }
-          }   
+            
     } catch (Exception e) {
-    e.printStackTrace();
-    
+        e.printStackTrace();
     }
-    
-    
 }
 
-  
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -101,8 +100,8 @@ public void login(){
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/background.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 430, 490));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/bg1.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 500));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, -1));
 
@@ -165,7 +164,7 @@ public void login(){
         });
         jPanel2.add(LOGIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 160, 50));
 
-        LOGIN1.setText("SIGN UP");
+        LOGIN1.setText("BACK");
         LOGIN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LOGIN1ActionPerformed(evt);
@@ -205,15 +204,15 @@ public void login(){
     }//GEN-LAST:event_PDActionPerformed
 
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
-      if(validatelogin()== true){
-login();
+     if(validatelogin()== true){
+      login();
 }
     }//GEN-LAST:event_LOGINActionPerformed
 
     private void LOGIN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGIN1ActionPerformed
-        signup UP= new signup();
-        UP.setVisible(true);
-        this. dispose();
+        userdashboard UP= new userdashboard();
+     UP.setVisible(true);
+       this. dispose();
     }//GEN-LAST:event_LOGIN1ActionPerformed
 
     /**

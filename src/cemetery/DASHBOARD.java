@@ -50,10 +50,12 @@ public class DASHBOARD extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        ADMINAME = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
-        ImageIcon icon = new ImageIcon(getClass().getResource("bg.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("bg.png"));
         Image img=icon.getImage();
         maindesk = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
@@ -223,6 +225,14 @@ public class DASHBOARD extends javax.swing.JFrame {
         jLabel2.setText("-----CIRCULATION-----");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 190, 30));
 
+        jLabel7.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("WELCOME");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, 40));
+
+        ADMINAME.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jPanel1.add(ADMINAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 110, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 593));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
@@ -358,7 +368,7 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     private void ASMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ASMouseClicked
            maindesk.removeAll();
-        deceasedinfo as =new deceasedinfo();
+        deceasedinfoadmin as =new deceasedinfoadmin();
         maindesk.add(as).setVisible(true);
     }//GEN-LAST:event_ASMouseClicked
 
@@ -371,7 +381,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private void LOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LOMouseClicked
          int a = JOptionPane.showConfirmDialog(null,"ARE YOU SURE YOU WANT TO LOGOUT?");
         if(a == JOptionPane.YES_OPTION){
-            login in = new login ();
+            userdashboard in = new userdashboard ();
             in.setVisible(true);
             this.dispose();}
     }//GEN-LAST:event_LOMouseClicked
@@ -423,6 +433,7 @@ public class DASHBOARD extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AB;
+    public static javax.swing.JLabel ADMINAME;
     private javax.swing.JPanel AS;
     private javax.swing.JPanel DH;
     private javax.swing.JPanel IB;
@@ -437,6 +448,7 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

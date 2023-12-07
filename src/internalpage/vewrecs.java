@@ -116,6 +116,12 @@ DefaultTableModel model;
       
       }
   }
+     public void search(String str){
+    model = (DefaultTableModel) DETAILS.getModel();
+    TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+    DETAILS.setRowSorter(trs);
+    trs.setRowFilter(RowFilter.regexFilter(str));
+    }
   
    public void filter(String qry ){
              model = (DefaultTableModel) DETAILS.getModel();
@@ -144,7 +150,7 @@ DefaultTableModel model;
         jScrollPane1 = new javax.swing.JScrollPane();
         DETAILS = new rojeru_san.complementos.RSTableMetro();
         rSMaterialButtonCircle1 = new necesario.RSMaterialButtonCircle();
-        FILTER = new javax.swing.JComboBox<>();
+        search = new app.bolivia.swing.JCTextField();
         jLabel16 = new javax.swing.JLabel();
         ddate = new com.toedter.calendar.JDateChooser();
         isdate = new com.toedter.calendar.JDateChooser();
@@ -195,13 +201,16 @@ DefaultTableModel model;
         });
         jPanel10.add(rSMaterialButtonCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 130, 40));
 
-        FILTER.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "RETURNED", "PENDING", " " }));
-        FILTER.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                FILTERItemStateChanged(evt);
+        search.setBorder(null);
+        search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        search.setFont(new java.awt.Font("Sylfaen", 1, 12)); // NOI18N
+        search.setPlaceholder("SEARCH");
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKeyReleased(evt);
             }
         });
-        jPanel10.add(FILTER, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 160, 30));
+        jPanel10.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 610, 20));
 
         jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 870, 360));
 
@@ -211,20 +220,20 @@ DefaultTableModel model;
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 320, 80));
 
         ddate.setDateFormatString("MM/ dd/ yy");
-        jPanel1.add(ddate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 200, 30));
+        jPanel1.add(ddate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 200, 30));
 
         isdate.setDateFormatString("MM/ dd/ yy");
-        jPanel1.add(isdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 200, 30));
+        jPanel1.add(isdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 200, 30));
 
         jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("DUE DATE:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 150, 30));
+        jLabel1.setText("DEATH DATE:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 150, 30));
 
         jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ISSUE DATE:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 150, 30));
+        jLabel2.setText("BORN DATE:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 150, 30));
 
         VIEWALL.setBackground(new java.awt.Color(0, 102, 102));
         VIEWALL.setText("VIEW ALL");
@@ -233,7 +242,7 @@ DefaultTableModel model;
                 VIEWALLActionPerformed(evt);
             }
         });
-        jPanel1.add(VIEWALL, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 150, 50));
+        jPanel1.add(VIEWALL, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 130, 40));
 
         SEARCH.setBackground(new java.awt.Color(0, 102, 102));
         SEARCH.setText("SEARCH");
@@ -242,7 +251,7 @@ DefaultTableModel model;
                 SEARCHActionPerformed(evt);
             }
         });
-        jPanel1.add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, 150, 50));
+        jPanel1.add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 90, 130, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 540));
 
@@ -276,16 +285,14 @@ DefaultTableModel model;
         }
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
-    private void FILTERItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_FILTERItemStateChanged
-          String qry = FILTER.getSelectedItem().toString();
-     
-        filter(qry);
-    }//GEN-LAST:event_FILTERItemStateChanged
+    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+        String seachst = search.getText();
+        search(seachst);
+    }//GEN-LAST:event_searchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSTableMetro DETAILS;
-    private javax.swing.JComboBox<String> FILTER;
     private necesario.RSMaterialButtonCircle SEARCH;
     private necesario.RSMaterialButtonCircle VIEWALL;
     private com.toedter.calendar.JDateChooser ddate;
@@ -297,5 +304,6 @@ DefaultTableModel model;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JScrollPane jScrollPane1;
     private necesario.RSMaterialButtonCircle rSMaterialButtonCircle1;
+    private app.bolivia.swing.JCTextField search;
     // End of variables declaration//GEN-END:variables
 }

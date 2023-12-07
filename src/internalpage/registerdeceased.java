@@ -325,11 +325,6 @@ if(NME.equals("")){
                 G_IDFocusLost(evt);
             }
         });
-        G_ID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G_IDActionPerformed(evt);
-            }
-        });
         G_ID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 G_IDKeyPressed(evt);
@@ -382,11 +377,6 @@ if(NME.equals("")){
         NAME.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 NAMEFocusLost(evt);
-            }
-        });
-        NAME.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NAMEActionPerformed(evt);
             }
         });
         NAME.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -515,21 +505,15 @@ if(NME.equals("")){
         print();
     }//GEN-LAST:event_printActionPerformed
 
-    private void G_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_G_IDActionPerformed
-
     private void LASTNAMEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LASTNAMEFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_LASTNAMEFocusLost
 
     private void LASTNAMEKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LASTNAMEKeyPressed
-        // TODO add your handling code here:
+         int pos = LASTNAME.getCaretPosition();
+        LASTNAME.setText(LASTNAME.getText().toUpperCase());
+        LASTNAME.setCaretPosition(pos);
     }//GEN-LAST:event_LASTNAMEKeyPressed
-
-    private void NAMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NAMEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NAMEActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -49,12 +49,12 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/background.jpg"/>
+              <Image iconType="3" name="/icons/bg1.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="0" width="430" height="490"/>
+              <AbsoluteConstraints x="0" y="0" width="460" height="500"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -221,7 +221,7 @@
         </Component>
         <Component class="necesario.RSMaterialButtonCircle" name="LOGIN1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="SIGN UP"/>
+            <Property name="text" type="java.lang.String" value="BACK"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LOGIN1ActionPerformed"/>
