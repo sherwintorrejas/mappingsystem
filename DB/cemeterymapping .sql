@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 01:34 PM
+-- Generation Time: Dec 07, 2023 at 10:38 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -70,22 +70,19 @@ INSERT INTO `registered_deceased` (`RECORD_ID`, `GRAVE_ID`, `NAME`, `LASTNAME`, 
 --
 
 CREATE TABLE `user` (
-  `user_id` int(100) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `contact` int(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `user_id` int(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `email`, `contact`, `password`) VALUES
-(5, 'sherwin', 'sherwin@gmail.com', 0, 'ADMIN'),
-(6, 'ADMIN', 'TEST@TEST.TEST', 694848, '$2a$10$DUsLHWaxae3bU4ihdYIQUOZtVZhu1W8tMQVTVc3TAOWrJytsRu8y2'),
-(7, 'A', 'A@A.COM', 11111, '$2a$10$jVwH9ByZO1Kua7d/KazoAuTttFNdQVyYtJR5z1pDrF9imbA0QoFj2'),
-(8, '1sherwin', 'sa@d.c', 16868168, '$2a$10$l9oa0jL5AfEuwkTRSRMcLOf4YRGkrNJdojUkOSOOKoXWiOpnE8xEa');
+INSERT INTO `user` (`user_id`, `username`, `password`, `fullname`, `contact`) VALUES
+(1, 'admin', 'admin', 'admin', '624934196');
 
 --
 -- Indexes for dumped tables
@@ -130,7 +127,7 @@ ALTER TABLE `registered_deceased`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
